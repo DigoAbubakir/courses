@@ -26,6 +26,12 @@ public class CourseService {
     }
 
     public Course listOne(Long id) {
-        return courseRepository.findById(id).get();
+        return courseRepository.findById(id).orElseThrow(() -> new NullPointerException("Usuario Nao encontrado"));
+    }
+
+    //TODO criar função para editar um usuario
+    public Course edit(Long id) {
+        Course course = listOne(id);
+        return null;
     }
 }
